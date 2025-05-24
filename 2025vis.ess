@@ -1,0 +1,63 @@
+start
+new year number
+set year 2025
+new temp number
+set temp year
+
+loop vichit4 (temp >= 4)
+    set temp temp - 4
+end vichit4
+new delimost4 number
+if (temp = 0)
+    set delimost4 1
+else
+    set delimost4 0
+close
+
+set temp year
+loop vichit100 (temp >= 100)
+    set temp temp - 100
+end vichit100
+new delimost100 number
+if (temp = 0)
+    set delimost100 1
+else
+    set delimost100 0
+close
+
+
+set temp year
+loop vichit400 (temp >= 400)
+    set temp temp - 400
+end vichit400
+new delimost400 number
+if (temp = 0)
+    set delimost400 1
+else
+    set delimost400 0
+close
+
+new visokos number
+if (delimost4 = 1)
+    if (delimost100 = 0)
+        set visokos 1 
+    else 
+        if (delimost400 = 1)
+            set visokos 1
+        else 
+            set visokos 0 
+        close
+    close
+else
+    set visokos 0
+close
+
+if (visokos = 1)
+    itog1 string year = 2025
+    set itog1 "Год " + binary(year) + " является високосным."
+    log string itog1
+else 
+    itog2 string year = 2025
+    set itog2 "Год " + binary(year) + " не является високосным."
+    log string itog2
+close
